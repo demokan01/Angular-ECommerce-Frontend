@@ -37,11 +37,12 @@ export class ShopComponent implements OnInit {
   getProducts(){
     this.shopService.getProducts(this.shopParams).subscribe(response =>{
       this.products = response.data;
-      this.shopParams.pageNumber=response.pageIndex;
-      this.shopParams.pageSize=response.pageSize;
-      this.totalCount= response.count;
+      this.shopParams.pageNumber = response.pageIndex;
+      this.shopParams.pageSize = response.pageSize;
+      this.totalCount = response.count;
       console.log(this.products);
       console.log(response);
+      console.log(this.totalCount)
     },err => {
       console.log(err);
     });
@@ -67,25 +68,25 @@ export class ShopComponent implements OnInit {
   }
 
   onBrandSelected(brandId:number){
-    this.shopParams.brandId=brandId;
-    this.getProducts();
-
-  }
-
-  onTypeSelected(typeId:number){
-    this.shopParams.typeId=typeId;
-    this.getProducts();
-
-  }
-
-  onSortSelected(sort: string){
-    this.shopParams.sort =sort;
+    this.shopParams.brandId = brandId;
+    this.shopParams.pageNumber =1;
     this.getProducts();
   }
 
-  onPageChanged(event:any){
-    this.shopParams.pageNumber = event.page;
-    this.getProducts();
-  }
+    onTypeSelected(typeId:number){
+      this.shopParams.typeId = typeId;
+      this.shopParams.pageNumber =1;
+      this.getProducts();
+    }
+
+      onSortSelected(sort : string){
+        this.shopParams.sort = sort;
+        this.getProducts();
+      }
+      onPageChanged(event : any){
+        
+        this.shopParams.pageNumber = event;
+        this.getProducts();
+      }
 
 }
