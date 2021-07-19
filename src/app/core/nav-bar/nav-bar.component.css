@@ -10,3 +10,23 @@
     top:-10px;
     right: 30px;
 }
+
+a{
+    text-decoration: none;
+    color: #343a40;
+
+    
+}
+
+a.active {
+    color:crimson;
+}
+
+
+.logo{
+    cursor: pointer;
+}
+
+.logo:focus{
+    outline: none;
+}
