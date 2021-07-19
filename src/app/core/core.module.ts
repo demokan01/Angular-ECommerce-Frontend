@@ -5,10 +5,8 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { TestErrorComponent } from './test-error/test-error.component';
-import { ToastrModule } from 'ngx-toastr';
-
-
-
+import { ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -21,7 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toastr-bottom-right',
       preventDuplicates : true,
     }),
-  ],
+    BrowserAnimationsModule,
+    ],
   exports: [NavBarComponent]
 })
 export class CoreModule { }

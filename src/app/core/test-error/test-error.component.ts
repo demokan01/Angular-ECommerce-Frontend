@@ -43,18 +43,20 @@ export class TestErrorComponent implements OnInit {
 
 
   get400ValidationError(){
-    this.http.get(this.baseUrl +'buggy/fourtytwo').subscribe(response =>{
+    this.http.get(this.baseUrl +'products/fourtytwo').subscribe(response =>{
       console.log(response);
 
     },error=>{
       console.log(error);
+      this.validationError =error.errors.id;
+      console.log(this.validationError);
       
     }
     );
   }
 
   get404Error(){
-    this.http.get(this.baseUrl +'products/40').subscribe(response =>{
+    this.http.get(this.baseUrl +'buggy/badrequest').subscribe(response =>{
       console.log(response);
 
     },error=>{
